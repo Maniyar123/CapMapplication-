@@ -1,0 +1,27 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.timesheet.timesheetproject.controller.Registartion"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" >
+
+    <HBox class="registationFormHboxClassId">
+     <form:SimpleForm title="SignUp" width="150%">
+     
+     <Label id="fullNameLableId" text="FullName" labelFor="fullNameInputId" design="Bold"></Label>
+     <Input id="fullNameInputId"></Input>
+     
+
+     <Label id="emailIdLableId" text="EmailId" labelFor="emailIdInputId" design="Bold"></Label>
+     <Input id="emailIdInputId"></Input>
+
+     <Label id="phoneNumberLableId" text="Mobile Number" labelFor="phoneNumberInputId" design="Bold"></Label>
+     <Input id="phoneNumberInputId"></Input>
+
+
+     <Label id="passwordLableId" text="Password" labelFor="passwordInputId" design="Bold"></Label>
+     <Input id="passwordInputId"></Input>
+      
+     </form:SimpleForm>
+     
+     
+     </HBox>
+      
+    </mvc:View> 

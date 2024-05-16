@@ -1,0 +1,25 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.timesheet.timesheetproject.controller.loginview"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" >
+    
+    <Title text="SBP" class="sbpTittleId"></Title>
+    <Text text="Update You'r Daily TimeSheet With SBPTimeSheet." class="subTittletextId"></Text>
+     <HBox id="registationHbox" class="hboxClassId" width="600px">
+
+      <form:SimpleForm id="loginFormId"  >
+        <Label text="Email_ID" labelFor="emailInputId" design="Bold"/>
+        <Input  id="emailInputId"></Input>
+         
+        <Label text="Password" labelFor="passwordInputId" design="Bold"></Label>
+        <Input id="passwordInputId"></Input>
+
+        <Button id="loginButton" text="LOGIN" type="Emphasized" width="40%" class="loginButtonClassId"> </Button>
+       
+        <Button id="registerButton" text="Create New Account" type="Success" icon="none" press="registrationButtonEvent"></Button>
+      </form:SimpleForm> 
+      
+      <Link text="Create" class="hyperLinkId"/>  
+      <Text class="contentId" text="a TimeSheet for another Email."/>
+      </HBox>
+        
+</mvc:View> 

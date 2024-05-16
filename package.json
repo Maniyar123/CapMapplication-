@@ -1,0 +1,67 @@
+{
+    "name": "capmproject",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+        "@sap/hana-client": "^2.19.21",
+        "@sap/xssec": "^3.6.1",
+        "express": "^4",
+        "passport": "^0.7.0"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7",
+        "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+        "@sap/hdi-deploy": "4.9.2",
+        "@sap/ux-specification": "^1.120.10",
+        "@sapui5/ts-types": "^1.92.2",
+        "eslint": "^7.32.0",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "undeploy": "cf undeploy capmproject --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "watch-newtreetableproject": "cds watch --open newtreetableproject/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-treetablenew": "cds watch --open treetablenew/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-timesheetproject": "cds watch --open timesheetproject/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-employeedetailsfpmproject": "cds watch --open employeedetailsfpmproject/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-demofpmproject": "cds watch --open demofpmproject/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-demoemployeepagefpm": "cds watch --open demoemployeepagefpm/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-listreportproject": "cds watch --open listreportproject/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-worklistproject": "cds watch --open worklistproject/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-demolistreportpage": "cds watch --open demolistreportpage/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-demoworklist": "cds watch --open demoworklist/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-democustomapp": "cds watch --open democustomapp/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-democustom": "cds watch --open democustom/webapp/index.html?sap-ui-xx-viewCache=false"
+    },
+    "cds": {
+        "hana": {
+            "deploy-format": "hdbtable"
+        }
+    },
+    "sapux": [
+        "app/project2",
+        "app/employeedetailsfpmproject",
+        "app/demofpmproject",
+        "app/employeedetailsfpmproject",
+        "app/demoemployeepagefpm",
+        "app/listreportproject",
+        "app/worklistproject",
+        "app/demolistreportpage",
+        "app/demoworklist",
+        "app/democustomapp",
+        "app/democustom",
+        "app/democustomapp",
+        "app/democustomapp"
+    ]
+}

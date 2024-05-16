@@ -1,0 +1,323 @@
+_schema-version: "3.1"
+ID: capmproject
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: capmproject-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: capmproject-auth
+  - name: capmproject-db
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm
+- name: capmproject
+  type: approuter.nodejs
+  path: app/
+  requires:
+  - name: srv-api
+    group: destinations
+    properties:
+      forwardAuthToken: true
+      name: srv-api
+      url: ~{srv-url}
+  - name: capmproject-auth
+  - name: capmproject-destination-service
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  parameters:
+    disk-quota: 256M
+    keep-existing-routes: true
+    memory: 256M
+- name: capmproject-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: capmproject-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: capmproject-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: capmproject-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - treetablenew.zip
+      name: treetablenew
+      target-path: resources/
+    - artifacts:
+      - comtimesheettimesheetproject.zip
+      name: comtimesheettimesheetproject
+      target-path: resources/
+    - artifacts:
+      - comfpmprojectproject2.zip
+      name: comfpmprojectproject2
+      target-path: resources/
+    - artifacts:
+      - comfpmemployeedetailsfpmproject.zip
+      name: comfpmemployeedetailsfpmproject
+      target-path: resources/
+    - artifacts:
+      - comfpmdemofpmproject.zip
+      name: comfpmdemofpmproject
+      target-path: resources/
+    - artifacts:
+      - comfpmprojectemployeedetailsfpmproject.zip
+      name: comfpmprojectemployeedetailsfpmproject
+      target-path: resources/
+    - artifacts:
+      - comfpmdemoemployeepagefpm.zip
+      name: comfpmdemoemployeepagefpm
+      target-path: resources/
+    - artifacts:
+      - comlistreportproject.zip
+      name: comlistreportproject
+      target-path: resources/
+    - artifacts:
+      - comworklistproject.zip
+      name: comworklistproject
+      target-path: resources/
+    - artifacts:
+      - comdemolistreportpage.zip
+      name: comdemolistreportpage
+      target-path: resources/
+    - artifacts:
+      - comdemoworklist.zip
+      name: comdemoworklist
+      target-path: resources/
+    - artifacts:
+      - democustomapp.zip
+      name: democustomapp
+      target-path: resources/
+    - artifacts:
+      - democustom.zip
+      name: democustom
+      target-path: resources/
+    - artifacts:
+      - comdemodemocustomapp.zip
+      name: comdemodemocustomapp
+      target-path: resources/
+    - artifacts:
+      - comdemocustomappdemocustomapp.zip
+      name: comdemocustomappdemocustomapp
+      target-path: resources/
+- name: treetablenew
+  type: html5
+  path: app/treetablenew
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comtimesheettimesheetproject
+  type: html5
+  path: app/timesheetproject
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comfpmprojectproject2
+  type: html5
+  path: app/project2
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comfpmemployeedetailsfpmproject
+  type: html5
+  path: app/employeedetailsfpmproject
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comfpmdemofpmproject
+  type: html5
+  path: app/demofpmproject
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comfpmprojectemployeedetailsfpmproject
+  type: html5
+  path: app/employeedetailsfpmproject
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comfpmdemoemployeepagefpm
+  type: html5
+  path: app/demoemployeepagefpm
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comlistreportproject
+  type: html5
+  path: app/listreportproject
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comworklistproject
+  type: html5
+  path: app/worklistproject
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comdemolistreportpage
+  type: html5
+  path: app/demolistreportpage
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comdemoworklist
+  type: html5
+  path: app/demoworklist
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: democustomapp
+  type: html5
+  path: app/democustomapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: democustom
+  type: html5
+  path: app/democustom
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comdemodemocustomapp
+  type: html5
+  path: app/democustomapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comdemocustomappdemocustomapp
+  type: html5
+  path: app/democustomapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: capmproject-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: capmproject-${org}-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: capmproject-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+- name: capmproject-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: capmproject-html5-srv
+    service-plan: app-host
+- name: capmproject-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: capmproject-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: capmproject-destination-service
+    service-plan: lite
+  requires:
+  - name: srv-api
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npx cds build --production

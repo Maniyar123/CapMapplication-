@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+<Dialog >
+    <form:SimpleForm>
+        <Label text="Description"/>
+        <Input value="{Description}" editable="false"/>
+
+        <Label text="Hierarchy Level"/>
+        <Input value="{HierarchyLevel}" editable="false"/>
+
+        <Label text="Node ID"/>
+        <Input value="{NodeID}" editable="false"/>
+
+        <Label text="Parent Node ID"/>
+        <Input value="{ParentNodeID}" editable="false"/>
+    </form:SimpleForm>
+</Dialog>
+</core:FragmentDefinition>

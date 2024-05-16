@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:m="sap.m" id="updateFragmentId">
+   <m:Dialog id="updateDialogId" title="Update Employee Details">
+    <!-- Custom Header with Close Button -->
+        <!-- <m:customHeader>
+            <m:Toolbar>
+                <m:ToolbarSpacer/>
+                <m:Title text="Update Employee Details"/>
+                <m:Button icon="sap-icon://decline" press="onClosePressCreateButton"  />
+            </m:Toolbar>
+        </m:customHeader> -->
+
+    <f:SimpleForm id="updateemployeeDetailsForm" editable="false" layout="ResponsiveGridLayout" >
+        <f:content>
+            <m:Label text="Employee ID" id="employeeIdLableId" />
+            <m:Input value="{CatalogService>EmployeeId}" id="employeeIdInputId" />
+
+            <m:Label text="Employee Name"  id="employeeNameLableId"/>
+            <m:Input value="{CatalogService>EmployeeName}" id="employeeNameInputId" />
+
+            <m:Label text="Employee Age" id="employeeAgeLableId" />
+            <m:Input value="{CatalogService>EmployeeAge}"  id="employeeAgeInputId"/>
+        </f:content>
+    </f:SimpleForm>
+    <m:Button text="Update" press="onPressUpdateButton" id="updateButtonId" class="sapUiLargeMarginBegin" width="70%" type="Success"/>
+    </m:Dialog>
+</core:FragmentDefinition>

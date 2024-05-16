@@ -1,0 +1,67 @@
+<mvc:View controllerName="com.newtreetableproject.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns="sap.ui.table">
+   
+    <m:Toolbar >
+    <m:ToolbarSpacer >
+    </m:ToolbarSpacer>
+    <m:Button text="create" press="onCreateFragment"></m:Button>
+    </m:Toolbar>
+        <TreeTable
+        id="treeTable"
+        selectionMode="Single"
+        enableColumnReordering="false"
+       
+        rows="{
+            path : '/treetable',
+            parameters : {
+                countMode: 'Inline',
+                treeAnnotationProperties : {
+                    hierarchyLevelFor : 'HierarchyLevel',
+                    hierarchyNodeFor : 'NodeID',
+                    hierarchyParentNodeFor : 'ParentNodeID',
+                    hierarchyDrillStateFor : 'DrillState'
+                }
+            }
+        }">
+
+        <columns>
+
+            <Column>
+                <m:Label text="Description"/>
+                <template>
+                    <m:Text text="{Description}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="HierarchyLevel"/>
+                <template>
+                    <m:Text text="{HierarchyLevel}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="NodeID"/>
+                <template>
+                    <m:Text text="{NodeID}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="ParentNodeID"/>
+                <template>
+                    <m:Text text="{ParentNodeID}" wrapping="false" />
+                </template>
+            </Column>
+
+        </columns>
+
+
+   
+    </TreeTable>
+
+
+   
+</mvc:View>

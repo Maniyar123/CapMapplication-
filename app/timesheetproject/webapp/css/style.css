@@ -1,0 +1,35 @@
+/* Enter your custom styles here */
+.hboxClassId{
+    position: relative;
+    top:150px;
+    left:800px;
+    
+}
+.loginButtonClassId{
+    position: relative;
+    left:120px;
+}
+.hyperLinkId,.contentId{
+position: relative;
+top:250px;
+right:380px;
+}
+.sbpTittleId{
+    position: relative;
+    top:200px;
+    font-size:60px;
+    left:220px;
+    color: blue;
+}
+.subTittletextId{
+    position: relative;
+    top:220px;
+    left:90px;
+    font-size:20px;
+}
+/* registation form styling */
+.registationFormHboxClassId{
+    position: relative;
+    top:220px;
+    left:530px;
+}
