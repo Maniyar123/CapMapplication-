@@ -50,7 +50,8 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.ushell": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.f": {}
       }
     },
     "contentDensities": {
@@ -129,7 +130,33 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/employeedetails"
+              "contextPath": "/employeedetails",
+              "content": {
+                "header": {
+                  "actions": {
+                    "backBtnId": {
+                      "press": "com.demolistreportpage.ext.controller.Main.onPressBackBtn",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Back",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DeleteAction"
+                      }
+                    },
+                    "idnew": {
+                      "press": "com.demolistreportpage.ext.controller.Main.demoPress",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Demo",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "backBtnId"
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }

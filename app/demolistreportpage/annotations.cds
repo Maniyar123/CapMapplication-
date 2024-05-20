@@ -30,3 +30,32 @@ annotate service.employeedetails with @(
     ]
 );
 
+annotate service.employeedetails with @(
+    UI.DataPoint #EmployeeAge : {
+        Value : EmployeeAge,
+        MinimumValue : 0,
+        MaximumValue : 20,
+    },
+    UI.Chart #EmployeeAge : {
+        ChartType : #Bullet,
+        Title : 'EmployeeAge',
+        Measures : [
+            EmployeeAge,
+        ],
+        MeasureAttributes : [
+            {
+                DataPoint : '@UI.DataPoint#EmployeeAge',
+                Role : #Axis1,
+                Measure : EmployeeAge,
+            },
+        ],
+    },
+    UI.HeaderFacets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'EmployeeAge',
+            Target : '@UI.Chart#EmployeeAge',
+
+        },
+    ]
+);

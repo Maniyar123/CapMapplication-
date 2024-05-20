@@ -115,6 +115,10 @@ modules:
       - comdemocustomappdemocustomapp.zip
       name: comdemocustomappdemocustomapp
       target-path: resources/
+    - artifacts:
+      - comoverviewoverviewpagedemo.zip
+      name: comoverviewoverviewpagedemo
+      target-path: resources/
 - name: treetablenew
   type: html5
   path: app/treetablenew
@@ -258,6 +262,16 @@ modules:
 - name: comdemocustomappdemocustomapp
   type: html5
   path: app/democustomapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comoverviewoverviewpagedemo
+  type: html5
+  path: app/overviewpagedemo
   build-parameters:
     build-result: dist
     builder: custom

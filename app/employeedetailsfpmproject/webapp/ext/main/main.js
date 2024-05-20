@@ -10,6 +10,7 @@ sap.ui.define([
 
     return {
         createButton: function(oEvent) {
+            // MainController.prototype.onInit.apply(this);
             // Get the instance of the Main controller
             var oMainController = new MainController();
             // Call the function directly from the controller
@@ -279,7 +280,9 @@ sap.ui.define([
 //             var oFragment = this.byId("updateFragmentId");
 //             if (oFragment) {
 //                 oFragment.close();
-//                 oFragment.destroy(); // Destroy the fragment to avoid memory leaks
+//                 oFragment.destroy(); // Destroy the fragment to avoid memory leaks,
+
+	
 //             }
 //         },
         

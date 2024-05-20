@@ -11,3 +11,4 @@ using from './demolistreportpage/annotations';
 
 using from './demoworklist/annotations';
 
+using from './overviewpagedemo/annotations';

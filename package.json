@@ -42,7 +42,8 @@
         "watch-demolistreportpage": "cds watch --open demolistreportpage/webapp/index.html?sap-ui-xx-viewCache=false",
         "watch-demoworklist": "cds watch --open demoworklist/webapp/index.html?sap-ui-xx-viewCache=false",
         "watch-democustomapp": "cds watch --open democustomapp/webapp/index.html?sap-ui-xx-viewCache=false",
-        "watch-democustom": "cds watch --open democustom/webapp/index.html?sap-ui-xx-viewCache=false"
+        "watch-democustom": "cds watch --open democustom/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-overviewpagedemo": "cds watch --open overviewpagedemo/webapp/index.html?sap-ui-xx-viewCache=false"
     },
     "cds": {
         "hana": {
@@ -62,6 +63,7 @@
         "app/democustomapp",
         "app/democustom",
         "app/democustomapp",
-        "app/democustomapp"
+        "app/democustomapp",
+        "app/overviewpagedemo"
     ]
 }
